@@ -12,7 +12,6 @@ import UIKit
 struct HttpUtility {
     func getApiData<T: Decodable>(requestUrl: String, resultType: T.Type, completionHandler:@escaping(_ result: T) -> Void) {
         if Common.verifyUrl(urlString: requestUrl) {
-            
             if let requestApiUrl = URL(string: requestUrl) {
                 URLSession.shared.dataTask(with: requestApiUrl) { responseData, httpUrlResponse, error in
                     if error == nil && httpUrlResponse != nil {
@@ -29,10 +28,16 @@ struct HttpUtility {
                                 }
                             }
                         }
+                    }else{
+                        app_del.showToast(message: error?.localizedDescription ?? "Server Error")
                     }
                 }
                 .resume()
+            }else{
+                print("URL not created")
             }
+        }else{
+            print("Invalid URL")
         }
     }
 }

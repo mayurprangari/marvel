@@ -29,14 +29,14 @@ class NetworkUtilityTest: XCTestCase {
         listViewModel.getDataFromApi(apiUrl: "\(Constants.baseUrl)\(Constants.charactersAPI)?ts=\(Constants.ts)&apikey=\(Constants.apiKey)&hash=\(Constants.hashKey)") { response, status in
             if status {
                 self.result = response.data?.results
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {[weak self] in
                     XCTAssertTrue(response.data != nil)
                     XCTAssertTrue((response.data?.results ?? []).count > 0)
-                    self.result = response.data?.results ?? []
+                    self?.result = response.data?.results ?? []
                 }
             }else{
-                DispatchQueue.main.async {
-                    XCTAssertFalse(self.result!.count > 0)
+                DispatchQueue.main.async {[weak self] in
+                    XCTAssertFalse((self?.result!.count)! > 0)
                 }
             }
         }
@@ -53,8 +53,8 @@ class NetworkUtilityTest: XCTestCase {
                     self.comicsResult = response.data?.results ?? []
                 }
             }else{
-                DispatchQueue.main.async {
-                    XCTAssertFalse(self.comicsResult!.count > 0)
+                DispatchQueue.main.async {[weak self] in
+                    XCTAssertFalse((self?.comicsResult!.count)! > 0)
                 }
             }
         }

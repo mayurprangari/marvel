@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-693" y="76"/>
         </scene>
-        <!--List View Controller-->
+        <!--Character List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ListViewController" id="BYZ-38-t0r" customClass="ListViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharacterListViewController" id="BYZ-38-t0r" customClass="CharacterListViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="75.669642857142847"/>
         </scene>
-        <!--Detail Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="FHn-Dd-M3p">
             <objects>
-                <viewController storyboardIdentifier="DetailController" id="xQB-uJ-q5D" customClass="DetailController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="xQB-uJ-q5D" customClass="DetailViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Juk-Oa-7Ah">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +74,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RV-cv-7NM">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1488"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgNoImage" translatesAutoresizingMaskIntoConstraints="NO" id="Oxs-0e-t5H">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oxs-0e-t5H">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="600" id="Fb0-xH-Ebu"/>
@@ -170,7 +170,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="imgNoImage" width="920" height="512"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

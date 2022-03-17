@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0h-TJ-uwx" customClass="MaterialView" customModule="Marvel" customModuleProvider="target">
                         <rect key="frame" x="5" y="10" width="199" height="368"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgNoImage" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGb-CC-A7F">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BGb-CC-A7F">
                                 <rect key="frame" x="10" y="10" width="179" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="d1k-e0-vDv"/>
@@ -85,7 +85,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="imgNoImage" width="920" height="512"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
