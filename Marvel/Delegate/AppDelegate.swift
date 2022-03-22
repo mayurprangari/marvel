@@ -9,6 +9,10 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var activityIndicator =  UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+    var arrLoader = NSMutableArray()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -32,6 +36,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         ToastManager.shared.style.messageFont = UIFont.systemFont(ofSize: 18)
         UIApplication.shared.windows.first { $0.isKeyWindow }?.makeToast(message)
+    }
+    
+    func showSoftActivityIndicator(controller:UIViewController? = nil)
+    {
+        activityIndicator = UIActivityIndicatorView(frame: CGRect(x: UIScreen.main.bounds.midX - 10, y: UIScreen.main.bounds.midY - 10, width: 50, height: 50))
+        activityIndicator.style = .large
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        arrLoader.add(activityIndicator)
+        controller!.view.addSubview(activityIndicator)
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
     }
 }
 

@@ -742,6 +742,5 @@ fileprivate extension UIView {
         } else {
             return .zero
         }
-    }
-    
+    }    
 }

@@ -23,10 +23,8 @@
 		042F04E127DA43EE009C8EA0 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F04E027DA43EE009C8EA0 /* General.swift */; };
 		042F04E527DB25AD009C8EA0 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F04E427DB25AD009C8EA0 /* MaterialView.swift */; };
 		045AE3B327E0CAAD00BCA15D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AE3B227E0CAAD00BCA15D /* Toast.swift */; };
-		045AE3B827E0D34C00BCA15D /* ExtensionCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AE3B727E0D34C00BCA15D /* ExtensionCharacterView.swift */; };
-		046810B927DC670B00A71916 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046810B827DC670B00A71916 /* Common.swift */; };
+		046810B927DC670B00A71916 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046810B827DC670B00A71916 /* String.swift */; };
 		046810BB27DC672100A71916 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046810BA27DC672100A71916 /* Constant.swift */; };
-		046810BD27DC673700A71916 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046810BC27DC673700A71916 /* SpinnerViewController.swift */; };
 		046810C027DC682300A71916 /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046810BF27DC682300A71916 /* HttpUtility.swift */; };
 		046810C227DC684F00A71916 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046810C127DC684F00A71916 /* Reachability.swift */; };
 		046810C527DC94A200A71916 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046810C427DC94A200A71916 /* CharacterListViewModel.swift */; };
@@ -80,10 +78,8 @@
 		042F04E027DA43EE009C8EA0 /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		042F04E427DB25AD009C8EA0 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		045AE3B227E0CAAD00BCA15D /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		045AE3B727E0D34C00BCA15D /* ExtensionCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCharacterView.swift; sourceTree = "<group>"; };
-		046810B827DC670B00A71916 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		046810B827DC670B00A71916 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		046810BA27DC672100A71916 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		046810BC27DC673700A71916 /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		046810BF27DC682300A71916 /* HttpUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
 		046810C127DC684F00A71916 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		046810C427DC94A200A71916 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
@@ -259,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				045AE3B527E0D29B00BCA15D /* ViewController */,
-				045AE3B627E0D2D400BCA15D /* Extension */,
 				045AE3BC27E0D44B00BCA15D /* Model */,
 				045AE3BE27E0D48A00BCA15D /* ViewModel */,
 				045AE3C027E0D4D000BCA15D /* CustomCell */,
@@ -273,14 +268,6 @@
 				042F04A327D9F647009C8EA0 /* CharacterListViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		045AE3B627E0D2D400BCA15D /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				045AE3B727E0D34C00BCA15D /* ExtensionCharacterView.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		045AE3B927E0D3A500BCA15D /* DetailViewScreen */ = {
@@ -354,9 +341,8 @@
 		046810B127DC663900A71916 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				046810B827DC670B00A71916 /* Common.swift */,
+				046810B827DC670B00A71916 /* String.swift */,
 				046810BA27DC672100A71916 /* Constant.swift */,
-				046810BC27DC673700A71916 /* SpinnerViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -622,7 +608,6 @@
 			files = (
 				04682C8C27DDEE8100E6CC37 /* ComicsViewModel.swift in Sources */,
 				046810C027DC682300A71916 /* HttpUtility.swift in Sources */,
-				046810BD27DC673700A71916 /* SpinnerViewController.swift in Sources */,
 				045AE3B327E0CAAD00BCA15D /* Toast.swift in Sources */,
 				046810C527DC94A200A71916 /* CharacterListViewModel.swift in Sources */,
 				042F04A427D9F647009C8EA0 /* CharacterListViewController.swift in Sources */,
@@ -630,8 +615,7 @@
 				042F04DC27DA3C25009C8EA0 /* MarvelCollectionCell.swift in Sources */,
 				042F04D727DA2248009C8EA0 /* CharacterListCell.swift in Sources */,
 				04682C8A27DDD7D500E6CC37 /* ComicsModel.swift in Sources */,
-				045AE3B827E0D34C00BCA15D /* ExtensionCharacterView.swift in Sources */,
-				046810B927DC670B00A71916 /* Common.swift in Sources */,
+				046810B927DC670B00A71916 /* String.swift in Sources */,
 				042F04DE27DA3E1E009C8EA0 /* DetailViewController.swift in Sources */,
 				046810C827DC94DF00A71916 /* CharacterListModel.swift in Sources */,
 				042F04E127DA43EE009C8EA0 /* General.swift in Sources */,

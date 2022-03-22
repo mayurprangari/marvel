@@ -9,13 +9,14 @@ import UIKit
 import SDWebImage
 
 class DetailViewController: UIViewController {
+    
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var lblDescription: UILabel!
     @IBOutlet private weak var lblTilte: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
+    
     private let flowLayout = ZoomAndSnapFlowLayout()
     var result: Result?
-    let child = SpinnerViewController()
     private var comicsViewModel = ComicsViewModel()
     private var comicsData : ComicsModel?
     private var comicsResult  : [Results]?
@@ -30,7 +31,6 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(true)
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +58,9 @@ class DetailViewController: UIViewController {
         lblDescription.text = result?.resultDescription ?? ""
     }
 }
+
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    
     //MARK: - CollectionView Datasource & Delegate method
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return comicsResult?.count ?? 0
@@ -69,18 +71,17 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let model = comicsResult?[indexPath.row]
         cell.setupData(model: model)
         return cell
-        
     }
     
     //MARK: - For Cell Highlight
-     func collectionView(_ collectionView: UICollectionView,
-                                willDisplay cell: UICollectionViewCell,
-                                forItemAt indexPath: IndexPath) {
-       cell.alpha = 0
-       UIView.animate(withDuration: 0.8) {
-           cell.alpha = 1
-       }
-   }
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.8) {
+            cell.alpha = 1
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.5) {
@@ -90,7 +91,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
         }
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.5) {
             if let cell = collectionView.cellForItem(at: indexPath) as? MarvelCollectionCell {
@@ -99,27 +100,26 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }
         }
     }
-    
-    
 }
 
 private extension DetailViewController{
     
     // MARK: - Api Call
     func retrieveDataFromApi() {
-        self.loadSpinnerView()
-        comicsViewModel.getDataFromApi(apiUrl: "\(Constants.baseUrl)\(Constants.charactersAPI)/\(result!.id!)/comics?ts=\(Constants.ts)&apikey=\(Constants.apiKey)&hash=\(Constants.hashKey)") { [weak self] response, status in
+        app_del.showSoftActivityIndicator(controller: self)
+        comicsViewModel.getDataFromApi(apiUrl: "\(Constants.comicsAPI1)\(result!.id!)\(Constants.comicsAPI2)") { [weak self] response, status in
             if status{
                 self?.comicsData = response
                 self?.comicsResult = self?.comicsData?.data?.results
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {[weak self] in
                     self?.navigationItem.title = "Details"
                     self?.collectionView.reloadData()
-                    self?.removeSpinnerView()
+                    app_del.hideActivityIndicator()
                 }
             }else{
-                app_del.showToast(message: Constants.messageBody)
-                self?.removeSpinnerView()
+                DispatchQueue.main.async {                        app_del.showToast(message: Constants.messageBody)
+                }
+                app_del.hideActivityIndicator()
             }
         }
     }

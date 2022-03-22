@@ -10,19 +10,6 @@ import UIKit
 
 //MARK: - Loader for Detail Controller
 extension DetailViewController {
-    func loadSpinnerView() {
-        // add the spinner view controller
-        addChild(child)
-        child.view.frame = UIScreen.main.bounds
-        view.addSubview(child.view)
-        child.didMove(toParent: self)
-    }
-    func removeSpinnerView() {
-        // remove the spinner view controller
-        self.child.willMove(toParent: nil)
-        self.child.view.removeFromSuperview()
-        self.child.removeFromParent()
-    }
     
     //MARK: - Class for Collection cell zoom
     class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
@@ -65,7 +52,6 @@ extension DetailViewController {
                     attributes.zIndex = Int(zoom.rounded())
                 }
             }
-            
             return rectAttributes
         }
         
@@ -85,7 +71,6 @@ extension DetailViewController {
                     offsetAdjustment = itemHorizontalCenter - horizontalCenter
                 }
             }
-            
             return CGPoint(x: proposedContentOffset.x + offsetAdjustment, y: proposedContentOffset.y)
         }
         
@@ -98,6 +83,5 @@ extension DetailViewController {
             context.invalidateFlowLayoutDelegateMetrics = newBounds.size != collectionView?.bounds.size
             return context
         }
-        
     }
 }

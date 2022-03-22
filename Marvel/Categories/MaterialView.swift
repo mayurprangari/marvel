@@ -12,6 +12,7 @@ class MaterialView: UIView
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.addShadow(offset: CGSize.init(width: 0, height: 2), color: UIColor.gray, radius: 2.0, opacity: 0.35)

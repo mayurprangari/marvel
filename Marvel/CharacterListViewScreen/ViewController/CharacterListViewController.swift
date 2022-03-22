@@ -11,13 +11,11 @@ class CharacterListViewController: UIViewController {
     
     @IBOutlet private weak var tblView: UITableView!
     
-    let child = SpinnerViewController()
     private var listViewModel = CharacterListViewModel()
     private var marvelList: CharacterListModel?
     private var result: [Result]?
     private var lastContentOffset: CGFloat = 0
     private let refreshControl = UIRefreshControl()
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +26,7 @@ class CharacterListViewController: UIViewController {
     
     //MARK:- Pull to Refresh Actions
     func pullToRefreshSetting(){
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: "")
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tblView.addSubview(refreshControl)
     }
@@ -67,21 +65,22 @@ private extension CharacterListViewController{
     
     // MARK: - Api Call
     func retrieveDataFromApi() {
-            self.loadSpinnerView()
-            listViewModel.getDataFromApi(apiUrl: "\(Constants.baseUrl)\(Constants.charactersAPI)?ts=\(Constants.ts)&apikey=\(Constants.apiKey)&hash=\(Constants.hashKey)") {[weak self] response, status in
-                if status {
-                    self?.marvelList = response
-                    if self?.marvelList != nil{
+        app_del.showSoftActivityIndicator(controller: self)
+        listViewModel.getDataFromApi(apiUrl: Constants.charactersAPI) {[weak self] response, status in
+            if status {
+                self?.marvelList = response
+                if self?.marvelList != nil{
                     self?.result = self?.marvelList?.data?.results
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {[weak self] in
                         self?.navigationItem.title = "Characters"
                         self?.tblView.reloadData()
-                        self?.removeSpinnerView()
+                        app_del.hideActivityIndicator()
                         self?.refreshControl.endRefreshing()
                     }
                 }else{
-                    app_del.showToast(message: Constants.messageBody)
-                    self?.removeSpinnerView()
+                    DispatchQueue.main.async {                        app_del.showToast(message: Constants.messageBody)
+                    }
+                    app_del.hideActivityIndicator()
                     self?.refreshControl.endRefreshing()
                 }
             }

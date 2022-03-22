@@ -29,8 +29,7 @@ struct Results: Codable {
     var resultDescription: String?
     var thumbnail: Thumbnails?
     var images: [Thumbnails]?
-  
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case digitalID
@@ -44,7 +43,7 @@ struct Results: Codable {
 struct Thumbnails: Codable {
     var path: String?
     var thumbnailExtension: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case path
         case thumbnailExtension

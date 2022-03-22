@@ -8,7 +8,7 @@
 import UIKit
 
 class MarvelCollectionCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet private weak var lblTitle: UILabel!
     @IBOutlet private weak var lblIssueNo: UILabel!
